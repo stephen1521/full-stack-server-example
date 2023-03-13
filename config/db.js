@@ -4,8 +4,6 @@ const db = process.env.MONGO_URI
 
 
 const connectDB = async () => {
-
-    console.log(db);
     try {
         //strictQuery, will check Schema for property before running
         // this is more efficient 

@@ -6,15 +6,14 @@ require('dotenv').config();
 //your dotenv file)
 const connectDB = require('./config/db');
 
+//routes 
+const books = require('./routes/api/books');
 
 //instantiates express
 const app = express();
 
 //connect to the DB 
 connectDB();
-
-app.get('/', (req, res) => res.send("Hello World!"));
-
 //sets the port defaults to 8000
 const port = process.env.PORT || 8000
 
