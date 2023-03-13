@@ -1,4 +1,5 @@
 const express = require('express');
+
 //load environment variables in .env file
 require('dotenv').config();
 
@@ -6,14 +7,23 @@ require('dotenv').config();
 //your dotenv file)
 const connectDB = require('./config/db');
 
-//routes 
+// instantiate routes 
 const books = require('./routes/api/books');
+
 
 //instantiates express
 const app = express();
 
+
+//welcome page 
+app.get('/', (req, res) => res.send("Hello World!"));
+
+// use books route
+app.use('/api/books', books);
+
 //connect to the DB 
 connectDB();
+
 //sets the port defaults to 8000
 const port = process.env.PORT || 8000
 
