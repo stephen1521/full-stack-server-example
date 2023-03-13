@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 const db = process.env.MONGO_URI
 
 
+
 const connectDB = async () => {
 
+    console.log(db);
     try {
         //strictQuery, will check Schema for property before running
         // this is more efficient 
@@ -13,6 +15,8 @@ const connectDB = async () => {
         console.error(error.message);
         process.exit(1)
     }
+
+    console.log("MongoDB is connected...");
 }
 
 module.exports = connectDB

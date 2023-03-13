@@ -1,10 +1,17 @@
 const express = require('express');
-
 //load environment variables in .env file
 require('dotenv').config();
 
+//connect to mongodb using mongoose (make sure you've already loaded
+//your dotenv file)
+const connectDB = require('./config/db');
+
+
 //instantiates express
-const app = express();  
+const app = express();
+
+//connect to the DB 
+connectDB();
 
 app.get('/', (req, res) => res.send("Hello World!"));
 
