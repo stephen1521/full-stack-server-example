@@ -18,4 +18,18 @@ router.get('/', (req, res) => {
     }))
 })
 
+//find by id 
+router.get('/:id', (req, res) => {
+    Book.findById(req.param.id)
+        .then(book => res.json(book))
+        .catch(err => res.status(404).json({nobookfound: "no book found"}))
+} )
+
+// add a new book 
+router.post('/', (req, res) => {
+    Book.create(req.body)
+        .then(book => res.json({msg: 'Book added successfully'}))
+        .catch(err => res.status(400).json({error: err}))
+})
+
 module.exports = router;
