@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
-// create a scheme for a book.
+// create a schema for a book.
 // fields: title, isbn, author, description, published_date,
 // publisher, updated_date
-
 const BookSchema =  new mongoose.Schema({
     title: {
         type: String,
@@ -33,4 +32,6 @@ const BookSchema =  new mongoose.Schema({
     }
 })
 
-module.exports = Book = mongoose.model('book', Book)
+//this line can also be written as two lines,
+// writing this way allows not to have to define a variable Book
+module.exports = Book = mongoose.model('book', BookSchema)
